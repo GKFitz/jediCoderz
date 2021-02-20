@@ -1,0 +1,23 @@
+{
+  "name": "jediCoderz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server copy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GKFitz/jediCoderz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GKFitz/jediCoderz/issues"
+  },
+  "homepage": "https://github.com/GKFitz/jediCoderz#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
