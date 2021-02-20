@@ -17,12 +17,14 @@ CREATE TABLE dogs (
 
 CREATE TABLE accounts (
    id INT NOT NULL AUTO_INCREMENT,
-   userName  VARCHAR(45) NULL,
-   passwords INT NULL,
+   admin_id VARCHAR(45) NULL,
+   admin_password INT NULL, 
+   client_password INT NULL,
    roles VARCHAR(45) NULL, 
-   petId VARCHAR(45) NULL,
-  PRIMARY KEY (id)
+   petId INT NULL,
+   PRIMARY KEY (id)
 );
 
--- -- fn, ls, or just username, role, password, generate id automatically
+
+-- fn, ls, or just username, role, password, generate id automatically
 -- acc id for any dog that belongs to xx, in dog table 
