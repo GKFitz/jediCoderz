@@ -10,6 +10,7 @@ CREATE TABLE dogs (
    breed VARCHAR(45) NULL,
    client_name VARCHAR(45) NULL,
    food_requirements VARCHAR(45) NULL,
+   friendliness INT NULL,
    petId INT NULL,
    age INT NULL,
    PRIMARY KEY (id)
