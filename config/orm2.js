@@ -1,4 +1,4 @@
-/** FOR ACCOUNTS TABLE  */
+/** FOR ACCOUNTS TABLE  ------ */
 
 // Import MySQL connection.
 const connection = require('./connection.js');
