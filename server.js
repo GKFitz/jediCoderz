@@ -1,25 +1,22 @@
 const express = require('express');
-
-// Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Requiring our models for syncing
-const db = require('./models');
+const handlebars = require('express-handlebars');
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.set('view engine', 'handlebars');
 
-// Static directory
+app.engine('handlebars', handlebars({
+    layoutsDir: `${__dirname}/views/layouts`,
+    defaultLayout: 'main'
+}));
+
 app.use(express.static('public'));
 
-// Routes
-require('./routes/api-routes.js')(app);
-require('./routes/html-routes.js')(app);
+app.get('/', (req,res) => {
+    res.render('index', {layout: 'main'});
+});
 
-// Syncing our sequelize models and then starting our Express app
-
-db.sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`App listening to port ${PORT}`);
 });
