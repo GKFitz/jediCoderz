@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoader', (e) => {
     // DELETE - grab the elements to delete 
 
 
-})
+});
 
