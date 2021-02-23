@@ -3,9 +3,14 @@ const db = require('../models');
 
 module.exports = (app) => {
 
-    //Get route to retrieve single Dog Client Account
+    //Get route to retrieve SINGLE - findOne - Dog Client Account
     app.get('/api/client/:petId', (req, res) => {
-        
+        db.Dogs.findOne({
+            where: {
+                petId: req.params.petId,
+            },
+            include: [db.Dogs],
+        }).then((dbClientAcc) => res.json(dbClientAcc));
     });
 
     // Post route for dogs accounts 

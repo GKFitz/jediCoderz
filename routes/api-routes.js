@@ -3,7 +3,6 @@ const { query } = require('express');
 const db = require('../models');
 
 // HTTP REQUESTS 
-
 // https://sequelize.org/v3/docs/querying/
 
 // Get route for getting all the dog clients 
@@ -65,11 +64,13 @@ module.exports = (app) => {
     });
 
     // put route for updating clients in admin
-    db.Account.update(req.body, {
-        where: {
-            petId: req.body.petId,
-        },
-    }).then((dbAdminAcc) => res.json(dbAdminAcc));
+    app.put('/api/accounts', (req, res) => {
+        db.Account.update(req.body, {
+            where: {
+                petId: req.body.petId,
+            },
+        }).then((dbAdminAcc) => res.json(dbAdminAcc));
+    })
 };
 
 
