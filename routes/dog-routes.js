@@ -35,6 +35,5 @@ module.exports = (app) => {
             },
         }).then((dbClientAcc) => res.json(dbClientAcc));
     })
-
     // Delete route needed here or????
 };

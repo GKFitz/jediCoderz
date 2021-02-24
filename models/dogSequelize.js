@@ -66,7 +66,6 @@ module.exports = (sequelize, DataTypes) => {
             },
         });
     };
-
     return Dog;
 };
 

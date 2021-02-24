@@ -18,7 +18,6 @@ module.exports = (app) => {
         }).then((dbAdminAcc) => res.json(dbAdminAcc));
     });
 
-
 /////// NOTE: WE COULD DO ANOTHER GET ROUTE IF THERES A SPECIFIC ACCOUNT WE WANT TO PULL... AS OF NOW ILL LEAVE ONE GET ROUTE
 
 
@@ -49,6 +48,7 @@ module.exports = (app) => {
     // delete route for deleting clients from admin - should it be by petId... to delete entire client account
     // ***SHOULD ID BE CHANGED TO: petId OR does the use of where {id: query} place the value inside id and i can leave it as it
     //i changed it... it was '/api/accounts/:id' but now its petId, i think this is correct
+    // JUST DELETING THE CLIENT DOG NOT THE petId
     app.delete('/api/accounts/:petId', (req, res) => {
         const query = {};
         if(req.query.petId) {
@@ -73,4 +73,4 @@ module.exports = (app) => {
     })
 };
 
-
+// get findAll() - for category...???? - would go inside the dog-routes.js or both?

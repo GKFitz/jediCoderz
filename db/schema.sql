@@ -18,9 +18,8 @@ CREATE TABLE dogs (
 
 CREATE TABLE accounts (
    id INT NOT NULL AUTO_INCREMENT,
-   admin_id VARCHAR(45) NULL,
-   admin_password INT NULL, 
-   client_password INT NULL,
+   username VARCHAR(45) NULL,
+   passwords INT NULL, 
    roles VARCHAR(45) NULL, 
    petId INT NULL,
    PRIMARY KEY (id)

@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
     const Account = sequelize.define('Account', {
-        admin_id: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: { //len: [2,15],only allow values with length between 2 and 10
                 len: [2,15],
             },
         },
-        admin_password: {
+        passwords: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -16,15 +16,7 @@ module.exports = (sequelize, DataTypes) => {
             isNumeric: true,
             isInt: true, //checks for valid integers
         },
-        client_password: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-            isNumeric: true,
-            isInt: true, //checks for valid integers
-        },
+
         roles: {
             type: DataTypes.STRING,
             allowNull: false,
