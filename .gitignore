@@ -7,3 +7,4 @@
 **/.env
 >>>>>>> e45aa5acfa352730659bdf57c39386cced1224ec
 
+**/package-lock.json
