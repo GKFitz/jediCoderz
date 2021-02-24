@@ -1,4 +1,10 @@
 const express = require('express');
+// hook the routes inside
+const htmlRouter = require('./routes/html-routes.js');
+const apiRouter = require('./routes/api-routes.js');
+const dogRouter = require('./routes/dog-routes.js');
+
+// let sequelize;
 
 // Sets up the Express App
 const app = express();
@@ -15,8 +21,15 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
+// require('./routes/api-routes.js');
+// require('./routes/html-routes.js');
 require('./routes/api-routes.js')(app);
 require('./routes/html-routes.js')(app);
+
+// invoke the routes
+htmlRouter(app);
+apiRouter(app);
+dogRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
 
