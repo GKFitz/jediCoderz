@@ -17,6 +17,10 @@ app.get('/', (req,res) => {
     res.render('index', {layout: 'main'});
 });
 
+app.get('/team', (req,res) => {
+    res.render('team', {layout: 'main'});
+});
+
 app.listen(PORT, () => {
     console.log(`App listening to port ${PORT}`);
 });
