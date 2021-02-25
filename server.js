@@ -11,15 +11,8 @@ app.engine('handlebars', handlebars({
     defaultLayout: 'main'
 }));
 
-app.use(express.static('public'));
-
-app.get('/', (req,res) => {
-    res.render('index', {layout: 'main'});
-});
-
-app.get('/team', (req,res) => {
-    res.render('team', {layout: 'main'});
-});
+app.use(express.static('public/assets'));
+app.use(require('./routes/html-routes'))
 
 app.listen(PORT, () => {
     console.log(`App listening to port ${PORT}`);

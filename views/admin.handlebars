@@ -1,18 +1,18 @@
 <!-- Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="index.html">Dog House</a>
+            <a class="navbar-brand js-scroll-trigger" href="/">Dog House</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="my-account.html">My Account</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="our-story.html">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="team.html">The Team</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="registration.html">Registration</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/my-account">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/story">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/team">The Team</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/registration">Registration</a></li>
                 </ul>
             </div>
         </div>
@@ -92,23 +92,25 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    {{#dogs}}
                     <div class="dogdiv">
                         <div class="section_d">
-                            <h3>Snowball </h3>
-                            <div class="name_dog">(Genis ${user.name})'s Dog </div>
+                            <h3>{{client_dog}}</h3>
+                            <div class="name_dog">{{ client_name}}'s Dog </div>
                         </div>
                         <div class="section_d">
-                            <h3>Snowball ${user.dog} 's Information </h3>
+                            <h3>{{client_dog}}'s Information </h3>
                             <div class="dog_in">
-                                <div class="flex"><span>Pet ID:</span> <b>123</b> </div>
-                                <div class="flex"><span>Age:</span> <b>2 years old</b> </div>
-                                <div class="flex"><span>Breed: </span> <b>Maltese</b> </div>
-                                <div class="flex"><span>Food Requirements:  </span> <b>Anything chicken!</b> </div>
+                                <div class="flex"><span>Pet ID:</span> <b>{{ petId }}</b> </div>
+                                <div class="flex"><span>Age:</span> <b>{{ age }} years old</b> </div>
+                                <div class="flex"><span>Breed: </span> <b>{{ breed }}</b> </div>
+                                <div class="flex"><span>Food Requirements:  </span> <b>{{food_requirements}}</b> </div>
                             </div>
                         </div>
                         <a class="btn btn-primary btn-x" href="">Update</a>
                         <a class="btn btn-primary btn-x" href="">Picked-up</a>
                     </div>
+                    {{/dogs}}
                 </div>
             </div>
         </div>

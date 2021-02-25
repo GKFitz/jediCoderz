@@ -1,21 +1,36 @@
-const express = require('express');
-const app = express();
-const port = 8080;
-
-const handlebars = require('express-handlebars');
-
-app.set('view engine', 'handlebars');
-
-app.engine('handlebars', handlebars({
-    layoutsDir: `${__dirname}/views/layouts`
-}));
-
-app.use(express.static('public'));
+const app = require('express').Router();
+const db = require("../config/connection");
 
 app.get('/', (req,res) => {
-    res.render('main', {layout: 'index'});
+    res.render('index', {layout: 'main'});
 });
 
-app.listen(port, () => {
-    console.log(`App listening to port ${port}`);
+app.get('/login', (req,res) => {
+    res.render('login', {layout: 'main'});
 });
+
+app.get('/team', (req,res) => {
+    res.render('team', {layout: 'main'});
+});
+
+app.get('/story', (req,res) => {
+    res.render('story', {layout: 'main'});
+});
+
+app.get('/faq', (req,res) => {
+    res.render('faq', {layout: 'main'});
+});
+
+app.get('/registration', (req,res) => {
+    res.render('registration', {layout: 'main'});
+});
+
+app.get('/my-account', async (req,res) => {
+   db.query("select * from dogs", function(err, data) {
+       res.render('admin', {layout: 'main', dogs: data});
+   });
+    // console.log(data);
+   
+});
+
+module.exports = app;
