@@ -77,3 +77,46 @@ header.team h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.font-weight-bold {
+  font-weight: 700;
+}
+hr.divider {
+  max-width: 10rem;
+  height: 4px;
+  background: pink;
+  opacity: 1;
+  margin: 0 auto;
+}
+.btn-primary {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+.btn-xl {
+  padding: 1.25rem 2.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
+}
+.page-section {
+  padding: 5rem 0;
+}
+.text-primary {
+  color: black !important;
+}
+.no-gutters > .col, .no-gutters > [class*=col-] {
+  padding-right: 0;
+  padding-left: 0;
+}
+svg.text-primary {
+  width: 80px;
+}
