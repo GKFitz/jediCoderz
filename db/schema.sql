@@ -6,7 +6,8 @@ USE doghouse_db;
 
 CREATE TABLE dogs (
    id INT NOT NULL AUTO_INCREMENT,
-   client_dog  VARCHAR(45) NULL,
+   username VARCHAR(45) NOT NULL,
+   client_dog VARCHAR(45) NULL,
    breed VARCHAR(45) NULL,
    client_name VARCHAR(45) NULL,
    food_requirements VARCHAR(45) NULL,
@@ -26,8 +27,9 @@ CREATE TABLE accounts (
 );
 
 -- create table to make new user (petId)
-CREATE TABLE newClient (
+CREATE TABLE newDog (
    id INT NOT NULL AUTO_INCREMENT,
+   username VARCHAR(45) NOT NULL,
    client_dog  VARCHAR(45) NULL,
    breed VARCHAR(45) NULL,
    client_name VARCHAR(45) NULL,
