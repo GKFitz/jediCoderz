@@ -289,3 +289,27 @@ bottom: 0px;
 .text-right {
   text-align: right;
 }
+.section-heading {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.section-heading h6 {
+  font-size: 16px;
+  letter-spacing: 3.2px;
+  text-align: center;
+  color: #ff9900;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #323232;
+}
