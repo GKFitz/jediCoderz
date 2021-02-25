@@ -313,3 +313,55 @@ bottom: 0px;
   text-align: center;
   color: #323232;
 }
+
+#full-faq .faq-area .card {
+  border: 0;
+  margin: 15px 0;
+  overflow: visible;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#full-faq .faq-area .card .card-header {
+  border: 0;
+  padding: 0;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: solid 1px #e3e8ec;
+  background-color: #f5f8fa;
+}
+
+#full-faq .faq-area .card .card-header h2 button {
+  padding: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+}
+#full-faq .faq-area .card .card-header h2 button:focus {
+  box-shadow: none;
+}
+#full-faq .faq-area .card .card-header h2 button svg {
+  fill: #96a9b8;
+  transition: all 0.3s;
+}
+
+#full-faq .faq-area .card .card-header.active {
+  background-color: #fffef8;
+}
+
+#full-faq .faq-area .card .card-header.active svg {
+  fill: #ff9900;
+  -ms-transform: rotate(180deg); /* IE 9 */
+  transform: rotate(180deg); /* Standard syntax */
+  transition: all 0.3s;
+}
