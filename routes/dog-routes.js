@@ -18,6 +18,7 @@ module.exports = (app) => {
     app.post('/api/client', (req, res) => {
         console.log(req.body);
         db.Dogs.create({
+            // userID: req.user.id, need for the association
             client_dog: req.body.client_dog,
             breed: req.body.breed,
             client_name: req.body.client_name,
@@ -26,6 +27,7 @@ module.exports = (app) => {
             petId: req.body.petId,
             age: req.body.age,
         }).then((dbClientAcc) => res.json(dbClientAcc));
+
     });
 
     // Put route to update whatever the client inputs

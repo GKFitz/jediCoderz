@@ -32,6 +32,17 @@ module.exports = (app) => {
             include: [db.Account],
         }).then((dbAdminAcc) => res.json(dbAdminAcc));
     });
+    //GKF alternative route if we just sort by username
+    app.get('/api/accounts', (req, res) => {
+        db.Account.findOne({
+            where: {
+                // params takes on the value of id from client
+                username: req.body.username
+            },
+            include: [db.Dog],
+        }).then((dbAccount) => res.json(dbAccount));
+    });
+    
 
     // Post route for creating an account - dog account creation inside dog-routes.js
     app.post('/api/accounts', (req, res) => {
@@ -44,7 +55,17 @@ module.exports = (app) => {
             petId: req.body.petId,
         }).then((dbAdminAcc) => res.json(dbAdminAcc));
     });
-
+    //GKF
+    app.post('/api/accounts', (req, res) => {
+        console.log(req.body);
+        db.Account.create({
+            admin_id: req.body.admin_id,
+            admin_password: req.body.admin_password,
+            client_password: req.body.client_password,
+            roles: req.body.roles,
+            petId: req.body.petId,
+        }).then((dbAdminAcc) => res.json(dbAdminAcc));
+    });
     // delete route for deleting clients from admin - should it be by petId... to delete entire client account
     // ***SHOULD ID BE CHANGED TO: petId OR does the use of where {id: query} place the value inside id and i can leave it as it
     //i changed it... it was '/api/accounts/:id' but now its petId, i think this is correct

@@ -1,3 +1,5 @@
+const dogRoutes = require("../routes/dog-routes");
+
 module.exports = (sequelize, DataTypes) => {
     const Dog = sequelize.define('Dog', {
         client_dog: {
@@ -60,12 +62,15 @@ module.exports = (sequelize, DataTypes) => {
     Dog.associate = (models) => {
         // a Dog must belong inside the Admin Account
         // Dog cannot be created without a petId (username) 
-        Dog.belongsTo(models.Account, {
+        models.Dog.belongsTo(models.Account, {
+
             foreignKey: {
                 allowNull: false,
             },
         });
     };
+    //automatically 
+    Dog.sync();
     return Dog;
 };
 

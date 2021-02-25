@@ -6,7 +6,7 @@ USE doghouse_db;
 
 CREATE TABLE dogs (
    id INT AUTO_INCREMENT NOT NULL ,
-   username VARCHAR(45) NOT NULL,
+   -- username VARCHAR(45) NOT NULL,
    client_name VARCHAR(45) NULL,
    dog_name  VARCHAR(45) NULL,
    breed VARCHAR(45) NULL,
@@ -23,7 +23,8 @@ CREATE TABLE accounts (
    id INT NOT NULL AUTO_INCREMENT,
    username VARCHAR(45) NULL,
    passwords INT NULL, 
-   roles VARCHAR(45) NULL, 
+   admin BOOLEAN NOT NULL,
+   --roles VARCHAR(45) NULL, 
    -- petId INT NULL,
    PRIMARY KEY (id)
 );
@@ -60,13 +61,14 @@ VALUES ("gb","genis", "snowball", "maltese", 5 , "raw", 4);
 INSERT INTO dog ( username, client_name, dog_name, breed, age, food_requirements, friendliness)
 VALUES ("ia","alain", "huskiesRock", "huskies", 2 , "kibble", 4);
 
-UPDATE dogs
-set checkin
+
 SELECT * FROM dogs;
+SELECT * FROM accounts;
+SELECT * FROM
 
--- INSERT INTO account (username, password, role)
--- VALUES ("gkf",132, "client");
+-- INSERT INTO account (username, password, admin)
+-- VALUES ("gkf",132, false);
 
--- INSERT INTO account (username, password, role)
--- VALUES ("gkf_admin",123, "admin")
+-- INSERT INTO account (username, password, admin)
+-- VALUES ("gkf_admin",123, true)
 

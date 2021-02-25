@@ -32,7 +32,7 @@ apiRouter(app);
 dogRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
-
+// GKF once set up make force false
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });

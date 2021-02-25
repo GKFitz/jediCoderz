@@ -2,7 +2,7 @@ const { request } = require("http");
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-      // The email cannot be null, and must be a proper email before creation
+      // The username cannot be null, and must be a proper username before creation
       username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -15,9 +15,23 @@ module.exports = function(sequelize, DataTypes) {
       passwords: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      //this true or false 
+      admin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
       }
     });
-    'password' == request.body.password
+    //
+    Account.associate = (models) => {
+    //Associate Account with Dog
+      // When Account is deleted its also deleted inside Dog
+      Account.hasMany(models.Dog, {
+          onDelete: 'cascade'
+      });
+  };
+  return Account;
+    //'password' == request.body.password
     //login 
     //create session
     //logout
