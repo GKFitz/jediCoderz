@@ -31,12 +31,25 @@ module.exports = function(sequelize, DataTypes) {
       });
   };
   return Account;
-    //'password' == request.body.password
+
+  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  Account.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  User.addHook("beforeCreate", function(account) {
+    user.password = bcrypt.hashSync(account.password, bcrypt.genSaltSync(10), null);
+  });
+  return Accounts;
+};
+
+//'password' == request.body.password
     //login 
     //create session
     //logout
     //destroy session
-}
+
 
 
 
