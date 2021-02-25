@@ -171,3 +171,24 @@ svg.text-primary {
  .team-img-hover:hover  li a:hover{
   transform: translateY(4px);
  }
+ ul li.list-inline-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul li.list-inline-item a svg {
+  fill: #fff;
+}
+ul.list-inline {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+}
+.team-item:hover .team-img-hover{
+ opacity: 1;
+transform: scale(1);
+ top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+}
