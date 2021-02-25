@@ -577,3 +577,18 @@ bottom: 0px;
   }
 }
 
+@media (max-width: 767px) {
+  .login_se {
+    overflow: hidden;
+  }
+  .login_se form {
+    padding: 25px;
+  }
+  #timeline .timeline-badge {
+    top: 9px;
+  }
+  #timeline .timeline-movement.timeline-movement-top {
+    margin-bottom: 38px;
+  }
+}
+
