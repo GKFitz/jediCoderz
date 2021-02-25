@@ -529,3 +529,30 @@ bottom: 0px;
   }
 }
 
+@media (min-width: 992px) {
+  header.masthead {
+    height: 100vh;
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+  header.team {
+    height: 40vh;
+    min-height: 30rem;
+    padding-top: 3.5rem;
+    padding-bottom: 0;
+  }
+  header.team p {
+    font-size: 1.15rem;
+  }
+  header.team h1 {
+    font-size: 3rem;
+  }
+}
+
