@@ -556,3 +556,24 @@ bottom: 0px;
   }
 }
 
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 3.5rem;
+  }
+  header.team h1 {
+    font-size: 3.5rem;
+  }
+  .homepagecarousel .carousel-item {
+    height: 100vh;
+  }
+  .homepagecarousel .carousel-item img {
+    min-height: 100vh;
+  }
+  .homepagecarousel.team_s .carousel-item {
+    height: 68vh;
+  }
+  .homepagecarousel.team_s .carousel-item img {
+    min-height: 68vh;
+  }
+}
+
