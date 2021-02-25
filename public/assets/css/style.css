@@ -481,3 +481,11 @@ bottom: 0px;
   color: #e2001a;
   font-size: 1.3em;
 }
+@media (min-width: 768px) {
+  .col-sm-offset-6 {
+      margin-left: 50%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+}
