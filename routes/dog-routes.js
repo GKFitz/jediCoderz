@@ -7,7 +7,8 @@ module.exports = (app) => {
     app.get('/api/client/:petId', (req, res) => {
         db.Dogs.findOne({
             where: {
-                petId: req.params.petId,
+                username: req.params.username
+                //petId: req.params.petId,
             },
             include: [db.Dogs],
         }).then((dbClientAcc) => res.json(dbClientAcc));
