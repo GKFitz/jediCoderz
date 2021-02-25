@@ -246,3 +246,46 @@ bottom: 0px;
 .homepagecarousel .carousel-item video {
   height: 101vh;
 }
+
+.login_se {
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.1), 0 0px 26px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+.login_se.signup {
+  max-width: 600px;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+.login_se.signup h3 {
+  background: pink;
+  padding: 30px 20px;
+  margin: 0px;
+}
+.login_se form,
+.login_se .addressf {
+  padding: 50px;
+}
+.login_se form h3 {
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.login-form-2{
+  background: #ffc0cb;
+  border-radius: 0px 15px 15px 0px;
+}
+.btnSubmit {
+  width: 100%;
+}
+.login_se form .form-group {
+  margin-bottom: 20px;
+}
+.login_se form .form-control {
+  padding: 15px;
+  border-radius: 30px;
+}
+.text-right {
+  text-align: right;
+}
