@@ -1,0 +1,144 @@
+<!-- Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">Dog House</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/my-account">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/story">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/team">The Team</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/registration">Registration</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <div id="homepagecarousel" class="carousel slide homepagecarousel team_s" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active flex">
+                <video autoplay muted loop id="myVideo" class="d-block w-100">
+                    <source src="images/video.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                  </video> 
+                <div class="carousel-caption d-md-block">
+                  <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                      <h1 class="text-uppercase text-white font-weight-bold">My Admin Account</h1>
+                      <hr class="divider my-4" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                      <p class="text-white-75 font-weight-light mb-5" style="font-weight: bold">Lorem Ipsum
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Boarding Dogs List-->
+    <section class="page-section bg-light" id="services">
+        <div class="container">
+            <h2 class="text-center mt-0">List of All Boarding Dogs</h2>
+            <hr class="divider my-4" />
+            <div class="row mt-5">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                    <div id="carouselExampleCaptions" class="carousel slide sliderdog" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/fullsize/4.jpg" class="d-block w-100" alt="">
+                                <div class="carousel-caption d-md-block">
+                                    <h5>First slide label</h5>
+                                    <p>Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/fullsize/2.jpg" class="d-block w-100" alt="">
+                                <div class="carousel-caption d-md-block">
+                                    <h5>Second slide label</h5>
+                                    <p>Some representative placeholder content for the second slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/fullsize/3.jpg" class="d-block w-100" alt="">
+                                <div class="carousel-caption d-md-block">
+                                    <h5>Third slide label</h5>
+                                    <p>Some representative placeholder content for the third slide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    {{#dogs}}
+                    <div class="dogdiv">
+                        <div class="section_d">
+                            <h3>{{client_dog}}</h3>
+                            <div class="name_dog">{{ client_name}}'s Dog </div>
+                        </div>
+                        <div class="section_d">
+                            <h3>{{client_dog}}'s Information </h3>
+                            <div class="dog_in">
+                                <div class="flex"><span>Pet ID:</span> <b>{{ petId }}</b> </div>
+                                <div class="flex"><span>Age:</span> <b>{{ age }} years old</b> </div>
+                                <div class="flex"><span>Breed: </span> <b>{{ breed }}</b> </div>
+                                <div class="flex"><span>Food Requirements:  </span> <b>{{food_requirements}}</b> </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary btn-x" href="">Update</a>
+                        <a class="btn btn-primary btn-x" href="">Picked-up</a>
+                    </div>
+                    {{/dogs}}
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="small text-center text-muted">Copyright © 2021 - Team Dog House</div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!--Video background script-->
+    <script>
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
+
+        function myFunction() {
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+        } else {
+            video.pause();
+            btn.innerHTML = "Play";
+        }
+        }
+    </script>

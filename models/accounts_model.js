@@ -1,4 +1,6 @@
 const { request } = require("http");
+var bcrypt = require("bcryptjs");
+
 
 module.exports = function(sequelize, DataTypes) {
     var Accounts = sequelize.define("Accounts", {

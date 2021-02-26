@@ -5,6 +5,10 @@
 =======
 **/.DS_Store
 **/.env
+<<<<<<< HEAD
 >>>>>>> e45aa5acfa352730659bdf57c39386cced1224ec
 
-**/package-lock.json
+**/.package-lock.json
+=======
+**/.package-lock.json
+>>>>>>> 47e2bea11c2215d68ce752522b94ae9ee91f209c
