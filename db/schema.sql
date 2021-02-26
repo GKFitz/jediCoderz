@@ -38,6 +38,5 @@ CREATE TABLE newClient (
    PRIMARY KEY (id)
 );
 
-
 -- fn, ls, or just username, role, password, generate id automatically
 -- acc id for any dog that belongs to xx, in dog table 

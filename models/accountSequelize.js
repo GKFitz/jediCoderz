@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'cascade'
         });
     };
+    Account.sync();
     return Account;
 };
 

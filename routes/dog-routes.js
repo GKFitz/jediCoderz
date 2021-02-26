@@ -22,7 +22,6 @@ module.exports = (app) => {
             client_name: req.body.client_name,
             food_requirements: req.body.food_requirements,
             friendliness: req.body.friendliness,
-            petId: req.body.petId,
             age: req.body.age,
         }).then((dbClientAcc) => res.json(dbClientAcc));
     });

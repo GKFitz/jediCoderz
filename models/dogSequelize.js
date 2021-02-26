@@ -37,15 +37,6 @@ module.exports = (sequelize, DataTypes) => {
             isNumeric: true,
             isInt: true,
         }, 
-        petId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-            isNumeric: true,
-            isInt: true,
-        },
         age: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -66,6 +57,7 @@ module.exports = (sequelize, DataTypes) => {
             },
         });
     };
+    Dog.sync();
     return Dog;
 };
 
