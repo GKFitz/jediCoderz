@@ -1,10 +1,10 @@
 **/node_modules
-<<<<<<< HEAD
+
 **/.DB_Store
 **/.env
-=======
-**/.DS_Store
-**/.env
->>>>>>> e45aa5acfa352730659bdf57c39386cced1224ec
 
-**/package-lock.json
+
+
+
+**/.package-lock.json
+
