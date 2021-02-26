@@ -4,11 +4,11 @@ const db = require('../models');
 module.exports = (app) => {
 
     //Get route to retrieve SINGLE - findOne - Dog Client Account
-    app.get('/api/client/:petId', (req, res) => {
+    app.get('/api/client', (req, res) => {
         db.Dogs.findOne({
             where: {
                 username: req.params.username
-                //petId: req.params.petId,
+                
             },
             include: [db.Dogs],
         }).then((dbClientAcc) => res.json(dbClientAcc));
@@ -24,17 +24,16 @@ module.exports = (app) => {
             client_name: req.body.client_name,
             food_requirements: req.body.food_requirements,
             friendliness: req.body.friendliness,
-            petId: req.body.petId,
             age: req.body.age,
         }).then((dbClientAcc) => res.json(dbClientAcc));
 
     });
 
-    // Put route to update whatever the client inputs
+    // Put route to update whatever the client inputs, if changes are made on the ADMIN side, the client files are immediately updated
     app.put('/api/client', (req, res) => {
         db.Dogs.update(req.body, {
             where: {
-                petId: req.body.petId,
+                username: req.body.username,
             },
         }).then((dbClientAcc) => res.json(dbClientAcc));
     })
