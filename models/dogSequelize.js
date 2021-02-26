@@ -1,8 +1,23 @@
 const dogRoutes = require("../routes/dog-routes");
 
 module.exports = (sequelize, DataTypes) => {
-    const Dog = sequelize.define('Dog', {
-        client_dog: {
+    const Dogs = sequelize.define('Dogs', {
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+              isUserName: true
+            }
+        },
+        client_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [2,15],
+            },
+        },
+        Dogs_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -16,12 +31,14 @@ module.exports = (sequelize, DataTypes) => {
                 len: [2,15],
             },
         },
-        client_name: {
-            type: DataTypes.STRING,
+        age: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                len: [2,15],
+                len: [2,35],
             },
+            isNumeric: true,
+            isInt: true,
         },
         food_requirements: {
             type: DataTypes.STRING,
@@ -39,41 +56,25 @@ module.exports = (sequelize, DataTypes) => {
             isNumeric: true,
             isInt: true,
         }, 
-        petId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-            isNumeric: true,
-            isInt: true,
-        },
-        age: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [2,35],
-            },
-            isNumeric: true,
-            isInt: true,
-        }
+        
+        
     });
 
-    Dog.associate = (models) => {
-        // a Dog must belong inside the Admin Account
-        // Dog cannot be created without a petId (username) 
-        models.Dog.belongsTo(models.Account, {
+    Dogs.associate = (models) => {
+        // a Dogs must belong inside the Admin Account
+        // Dogs cannot be created without a petId (username) 
+        Dogs.belongsTo(models.Account, {
 
             foreignKey: {
                 allowNull: false,
             },
         });
     };
-    //automatically 
-    Dog.sync();
-    return Dog;
+    //GKF automatically syncs the dog and accounts tables
+   
+    return Dogs;
 };
-
+//GKF
 
 /**
  * https://sequelize.org/master/manual/validations-and-constraints.html

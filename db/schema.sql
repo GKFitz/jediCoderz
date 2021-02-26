@@ -6,7 +6,6 @@ USE doghouse_db;
 
 CREATE TABLE dogs (
    id INT AUTO_INCREMENT NOT NULL ,
-   -- username VARCHAR(45) NOT NULL,
    client_name VARCHAR(45) NULL,
    dog_name  VARCHAR(45) NULL,
    breed VARCHAR(45) NULL,
