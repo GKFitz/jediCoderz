@@ -1,48 +1,80 @@
+const dogRoutes = require("../routes/dog-routes");
+
 module.exports = (sequelize, DataTypes) => {
-    const Account = sequelize.define('Account', {
+    const Dogs = sequelize.define('Dogs', {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { //len: [2,15],only allow values with length between 2 and 10
-                len: [2,15],
-            },
-        },
-        passwords: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+            unique: true,
             validate: {
-                len: [2,15],
-            },
-            isNumeric: true,
-            isInt: true, //checks for valid integers
+              isUserName: true
+            }
         },
-
-        roles: {
+        client_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [2,15],
+            },
         },
-        petId: {
-            type: DataTypes.INTEGER,
+        Dogs_name: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [2,15],
+            },
+        },
+        breed: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [2,15],
+            },
+        },
+        age: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: [2,35],
             },
             isNumeric: true,
             isInt: true,
-        }
+        },
+        food_requirements: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [2,200],
+            },
+        },
+        friendliness: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: [1,5],
+            },
+            isNumeric: true,
+            isInt: true,
+        }, 
+        
+        
     });
 
-    Account.associate = (models) => {
-        //Associate Account with Dog
-        // When Account is deleted its also deleted inside Dog
-        Account.hasMany(models.Dog, {
-            onDelete: 'cascade'
+    Dogs.associate = (models) => {
+        // a Dogs must belong inside the Admin Account
+        // Dogs cannot be created without a petId (username) 
+        Dogs.belongsTo(models.Account, {
+
+            foreignKey: {
+                allowNull: false,
+            },
         });
     };
-    return Account;
+    //GKF automatically syncs the dog and accounts tables
+   
+    return Dogs;
 };
-
-
+//GKF
 
 /**
  * https://sequelize.org/master/manual/validations-and-constraints.html
@@ -83,3 +115,4 @@ module.exports = (sequelize, DataTypes) => {
       min: 23,                  // only allow values >= 23
       isCreditCard: true,       // check for valid credit card numbers
  */
+

@@ -1,31 +1,41 @@
-// Requiring path to so we can use relative routes to our HTML files
-var path = require("path");
+// dog table 
+const db = require('../models');
 
-// Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+module.exports = (app) => {
 
-module.exports = function(app) {
+    //Get route to retrieve SINGLE - findOne - Dog Client Account
+    app.get('/api/client/:id', (req, res) => {
+        db.Accounts.findOne({
+            where: {
+                id: req.params.id
+                
+            },
+            include: [db.Dogs],
+        }).then((dbClientAcc) => res.json(dbClientAcc));
+    });
 
-  app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
-  });
+    // Post route for dogs accounts 
+    app.post('/api/client/', (req, res) => {
+        console.log(req.body);
+        db.Dogs.create({
+            AccountsId: req.body.accountsId,
+            client_name: req.body.client_name,
+            dog_name: req.body.dog_name,
+            breed: req.body.breed,
+            age: req.body.age,
+            food_requirements: req.body.food_requirements,
+            friendliness: req.body.friendliness,
+        }).then((dbClientAcc) => res.json(dbClientAcc));
 
-  app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
-  });
+    });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/signup", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
-  });
-
+    // Put route to update whatever the client inputs, if changes are made on the ADMIN side, the client files are immediately updated
+    app.put('/api/client', (req, res) => {
+        db.Dogs.update(req.body, {
+            where: {
+                id: req.body.id,
+            },
+        }).then((dbClientAcc) => res.json(dbClientAcc));
+    })
+    // Delete route needed here or????
 };
