@@ -1,3 +1,10 @@
+// Dependencies
+// =============================================================
+// This may be confusing but here Sequelize (capital) references the standard library
+const Sequelize = require('sequelize');
+// sequelize (lowercase) references our connection to the DB.
+const sequelize = require('../config/connection.js');
+
 const dogRoutes = require("../routes/client-routes");
 
 module.exports = (sequelize, DataTypes) => {
