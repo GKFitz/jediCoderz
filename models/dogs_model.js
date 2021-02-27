@@ -1,4 +1,4 @@
-const dogRoutes = require("../routes/dog-routes");
+const dogRoutes = require("../routes/client-routes");
 
 module.exports = (sequelize, DataTypes) => {
     const Dogs = sequelize.define('Dogs', {
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
                 len: [2,15],
             },
         },
-        Dogs_name: {
+        dog_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
