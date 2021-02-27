@@ -8,6 +8,8 @@ const sequelize = require('../config/connection.js');
 // Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
 var bcrypt = require("bcryptjs");
 
+// reading the admin routes
+const accountsRoutes = require("../routes/api-routes");
 
 module.exports = function(sequelize, DataTypes) {
     var Accounts = sequelize.define("Accounts", {
@@ -31,11 +33,11 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: false,
       }
     });
-    //
-    Account.associate = (models) => {
+    //note was account singular changed to plural
+    Accounts.associate = (models) => {
     //Associate Account with Dog
       // When Account is deleted its also deleted inside Dog
-      Account.hasMany(models.Dog, {
+      Accounts.hasMany(models.Dogs, {
           onDelete: 'cascade'
       });
   };

@@ -69,14 +69,14 @@ module.exports = (sequelize, DataTypes) => {
     Dogs.associate = (models) => {
         // a Dogs must belong inside the Admin Account
         // Dogs cannot be created without a petId (username) 
-        Dogs.belongsTo(models.Account, {
+        Dogs.belongsTo(models.Accounts, {
 
             foreignKey: {
                 allowNull: false,
             },
         });
     };
-    return Dogs;
+    return Dogs;   
 };
 //GKF
 
@@ -119,4 +119,3 @@ module.exports = (sequelize, DataTypes) => {
       min: 23,                  // only allow values >= 23
       isCreditCard: true,       // check for valid credit card numbers
  */
-
