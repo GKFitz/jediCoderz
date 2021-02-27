@@ -1,10 +1,12 @@
 $(document).ready(function() {
     // Getting references to our form and inputs
     //need to coordinate with alain for the HTML classes
-    var loginForm = $("form.login");
-    var usernameInput = $("input#username-input");
-    var passwordInput = $("input#password-input");
+    var loginForm = $("/views/login");
+    var usernameInputClient = $("clientPassword");
+    var passwordInputClient = $("clientUsername");
   
+    var usernameInputAdmin = $("adminUsername");
+    var passwordInputAdmin = $("adminPassword");
     // When the form is submitted, we validate there's an email and password entered
     loginForm.on("submit", function(event) {
       event.preventDefault();
@@ -13,7 +15,7 @@ $(document).ready(function() {
         password: passwordInput.val().trim()
       };
   
-      if (!userData.email || !userData.password) {
+      if (!userData.username || !userData.password) {
         return;
       }
   
