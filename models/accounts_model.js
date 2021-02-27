@@ -1,3 +1,5 @@
+// Dependencies
+// =============================================================
 const { request } = require("http");
 // This may be confusing but here Sequelize (capital) references the standard library
 const Sequelize = require('sequelize');
@@ -38,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
       });
   };
   
-  return Account;
+  
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   Accounts.prototype.validPassword = function(password) {
@@ -52,11 +54,7 @@ module.exports = function(sequelize, DataTypes) {
   return Accounts;
 };
 
-//'password' == request.body.password
-    //login 
-    //create session
-    //logout
-    //destroy session
+
 
 
 
