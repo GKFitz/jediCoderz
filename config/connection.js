@@ -1,27 +1,10 @@
-const mysql = require('mysql');
+////GKF CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL USING SEQUELIZE
 require("dotenv").config();
-
-const connection = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password: process.env.PASS,
-    database:'doghouse_db'
-})
-
-connection.connect(function(err){
-    if(err) throw err;
-    console.log("Success! Connection registered as id: " + connection.threadId);
-});
-
-module.exports = connection;
-
-////GKF CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
-
 // Dependencies
 const Sequelize = require('sequelize');
 
 // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-const sequelize = new Sequelize('dogHouse_db', 'root', 'chocolate1', {
+const sequelize = new Sequelize('dogHouse_db', 'root', process.env.PASS, {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',

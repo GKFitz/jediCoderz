@@ -1,4 +1,11 @@
-const dogRoutes = require("../routes/dog-routes");
+// Dependencies
+// =============================================================
+// This may be confusing but here Sequelize (capital) references the standard library
+const Sequelize = require('sequelize');
+// sequelize (lowercase) references our connection to the DB.
+const sequelize = require('../config/connection.js');
+
+const dogRoutes = require("../routes/client-routes");
 
 module.exports = (sequelize, DataTypes) => {
     const Dogs = sequelize.define('Dogs', {
@@ -17,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
                 len: [2,15],
             },
         },
-        Dogs_name: {
+        dog_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

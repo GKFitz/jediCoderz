@@ -1,4 +1,11 @@
+// Dependencies
+// =============================================================
 const { request } = require("http");
+// This may be confusing but here Sequelize (capital) references the standard library
+const Sequelize = require('sequelize');
+// sequelize (lowercase) references our connection to the DB.
+const sequelize = require('../config/connection.js');
+// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
 var bcrypt = require("bcryptjs");
 
 
@@ -33,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
       });
   };
   
-  return Account;
+  
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   Accounts.prototype.validPassword = function(password) {
@@ -47,11 +54,7 @@ module.exports = function(sequelize, DataTypes) {
   return Accounts;
 };
 
-//'password' == request.body.password
-    //login 
-    //create session
-    //logout
-    //destroy session
+
 
 
 
