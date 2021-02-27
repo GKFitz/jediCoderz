@@ -46,10 +46,6 @@ module.exports = (sequelize, DataTypes) => {
             },
             isNumeric: true,
             isInt: true,
-<<<<<<< HEAD:models/dogSequelize.js
-        }, 
-        age: {
-=======
         },
         food_requirements: {
             type: DataTypes.STRING,
@@ -59,7 +55,6 @@ module.exports = (sequelize, DataTypes) => {
             },
         },
         friendliness: {
->>>>>>> 45b3026a60472886d185a11132296680db4fd1f5:models/dogs_model.js
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -75,21 +70,16 @@ module.exports = (sequelize, DataTypes) => {
     Dogs.associate = (models) => {
         // a Dogs must belong inside the Admin Account
         // Dogs cannot be created without a petId (username) 
-        Dogs.belongsTo(models.Account, {
+        Dogs.belongsTo(models.Accounts, {
 
             foreignKey: {
                 allowNull: false,
             },
         });
     };
-<<<<<<< HEAD:models/dogSequelize.js
-    Dog.sync();
-    return Dog;
-=======
-    //GKF automatically syncs the dog and accounts tables
    
     return Dogs;
->>>>>>> 45b3026a60472886d185a11132296680db4fd1f5:models/dogs_model.js
+
 };
 //GKF
 
