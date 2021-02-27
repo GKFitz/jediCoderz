@@ -1,9 +1,9 @@
 $(document).ready(function() {
     // Getting references to our form and inputs
     //need to coordinate with alain for the HTML classes
-    var loginForm = $("/views/login");
-    var usernameInputClient = $("clientPassword");
-    var passwordInputClient = $("clientUsername");
+    var loginForm = $("./views/login-handlebars");
+    var usernameInputClient = $("clientUsername");
+    var passwordInputClient = $("clientPassword");
   
     var usernameInputAdmin = $("adminUsername");
     var passwordInputAdmin = $("adminPassword");
@@ -21,8 +21,8 @@ $(document).ready(function() {
   
       // If we have an email and password we run the loginUser function and clear the form
       loginUser(userData.username, userData.password);
-      usernameInput.val("");
-      passwordInput.val("");
+      usernameInputClient.val("");
+      passwordInputAdmin.val("");
     });
   
     // GKF loginUser does a post to our "api/login" route and if successful, redirects us the appropriate account page
