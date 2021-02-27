@@ -1,97 +1,49 @@
-// Dependencies
-// =============================================================
-// This may be confusing but here Sequelize (capital) references the standard library
-const Sequelize = require('sequelize');
-// sequelize (lowercase) references our connection to the DB.
-const sequelize = require('../config/connection.js');
-
-const dogRoutes = require("../routes/client-routes");
-
 module.exports = (sequelize, DataTypes) => {
-    const Dogs = sequelize.define('Dogs', {
+    const Account = sequelize.define('Account', {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
-            validate: {
-              isUserName: true
-            }
-        },
-        client_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
+            validate: { //len: [2,15],only allow values with length between 2 and 10
                 len: [2,15],
             },
         },
-        dog_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-        },
-        breed: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-        },
-        age: {
+        passwords: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                len: [2,35],
+                len: [2,15],
             },
             isNumeric: true,
-            isInt: true,
-<<<<<<< HEAD:models/dogSequelize.js
-        }, 
-        age: {
-=======
+            isInt: true, //checks for valid integers
         },
-        food_requirements: {
+
+        roles: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [2,200],
-            },
         },
-        friendliness: {
->>>>>>> 45b3026a60472886d185a11132296680db4fd1f5:models/dogs_model.js
+        petId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                len: [1,5],
+                len: [2,15],
             },
             isNumeric: true,
             isInt: true,
-        }, 
-        
-        
+        }
     });
 
-    Dogs.associate = (models) => {
-        // a Dogs must belong inside the Admin Account
-        // Dogs cannot be created without a petId (username) 
-        Dogs.belongsTo(models.Account, {
-
-            foreignKey: {
-                allowNull: false,
-            },
+    Account.associate = (models) => {
+        //Associate Account with Dog
+        // When Account is deleted its also deleted inside Dog
+        Account.hasMany(models.Dog, {
+            onDelete: 'cascade'
         });
     };
-<<<<<<< HEAD:models/dogSequelize.js
-    Dog.sync();
-    return Dog;
-=======
-    //GKF automatically syncs the dog and accounts tables
-   
-    return Dogs;
->>>>>>> 45b3026a60472886d185a11132296680db4fd1f5:models/dogs_model.js
+    Account.sync();
+    return Account;
 };
-//GKF
+
+
 
 /**
  * https://sequelize.org/master/manual/validations-and-constraints.html
@@ -132,4 +84,3 @@ module.exports = (sequelize, DataTypes) => {
       min: 23,                  // only allow values >= 23
       isCreditCard: true,       // check for valid credit card numbers
  */
-

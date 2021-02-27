@@ -1,5 +1,6 @@
 ////GKF CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL USING SEQUELIZE
 require("dotenv").config();
+
 // Dependencies
 const Sequelize = require('sequelize');
 
