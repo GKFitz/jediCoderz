@@ -11,8 +11,14 @@ app.engine('handlebars', handlebars({
     defaultLayout: 'main'
 }));
 
+
+// Syncing our sequelize models and then starting our Express app
+// GKF once set up make force false
+db.sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
+});
 app.use(express.static('public/assets'));
-app.use(require('./routes/html-routes'))
+app.use(require('./routes/html-routes'));
 
 app.listen(PORT, () => {
     console.log(`App listening to port ${PORT}`);
