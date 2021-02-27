@@ -14,9 +14,6 @@ connection.connect(function(err){
 });
 
 module.exports = connection;
-<<<<<<< HEAD
-=======
-
 ////GKF CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
 
 // Dependencies
@@ -36,4 +33,3 @@ const sequelize = new Sequelize('dogHouse_db', 'root', 'chocolate1', {
 
 // Exports the connection for other files to use
 module.exports = sequelize;
->>>>>>> 45b3026a60472886d185a11132296680db4fd1f5
