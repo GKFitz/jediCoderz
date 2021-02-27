@@ -1,5 +1,3 @@
-// CRUD - CREATE, READ, UPDATE, DELETE - links to handlebars 
-// waits for handlers until DOM is ready
 document.addEventListener('DOMContentLoader', (e) => {
     console.info('DOM loaded');
     // const username = document.getElementById('username');
@@ -50,6 +48,8 @@ document.addEventListener('DOMContentLoader', (e) => {
         // element to show the posts
         return tr;
     };
+
+    // DELETING THE DOG ACCOUNT ENTIRELY - dogInData
 
 
     // grab all clients 
