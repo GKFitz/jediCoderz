@@ -1,18 +1,7 @@
-// Dependencies
-// =============================================================
-const { request } = require("http");
-// This may be confusing but here Sequelize (capital) references the standard library
-const Sequelize = require('sequelize');
-// sequelize (lowercase) references our connection to the DB.
-const sequelize = require('../config/connection.js');
-// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
-var bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
-// reading the admin routes
-const accountsRoutes = require("../routes/api-routes");
-
-module.exports = function(sequelize, DataTypes) {
-    var Accounts = sequelize.define("Accounts", {
+module.exports = (sequelize, DataTypes) => {
+    const Accounts = sequelize.define('Accounts', {
       // The username cannot be null, and must be a proper username before creation
       username: {
         type: DataTypes.STRING,
@@ -23,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       // The password cannot be null
-      passwords: {
+      password: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -53,6 +42,7 @@ module.exports = function(sequelize, DataTypes) {
   Accounts.addHook("beforeCreate", function(accounts) {
     Accounts.password = bcrypt.hashSync(accounts.password, bcrypt.genSaltSync(10), null);
   });
+  
   return Accounts;
 };
 
