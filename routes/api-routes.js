@@ -1,6 +1,6 @@
-// const { query } = require('express');
+const { query } = require('express');
 // accounts table -> require models
-// const db = require('../models');
+const db = require('../models');
 
 var passport = require("../config/passport.js");
 

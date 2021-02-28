@@ -15,12 +15,10 @@ const handlebars = require('express-handlebars');
 
 app.set('view engine', 'handlebars');
 app.engine('handlebars', handlebars({
-    layoutsDir: `${__dirname}/views/layouts`,
-    defaultLayout: 'main'
+  layoutsDir: `${__dirname}/views/layouts`,
+  defaultLayout: 'main'
 }));
 
-app.use(express.static('public/assets'));
-app.use(require('./routes/html-routes'));
 
 // Invoke routes
 htmlRouter(app);
@@ -30,6 +28,7 @@ apiRouter(app);
 // Syncing our sequelize models and then starting our Express app
 // GKF once set up make force false
 db.sequelize.sync({ force: true }).then(() => {
-
+  app.use(express.static('public/assets'));
+  app.use(require('./routes/html-routes'));
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
