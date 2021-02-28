@@ -6,7 +6,7 @@ const path = require('path');
 //Basename: -> Returns the last portion of a path. Similar to the Unix basename command. Often used to extract the file name from a fully qualified path.
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(`${__dirname}/../config/conection.js`)[env];
+const config = require(`${__dirname}/../config/config.js`)[env];
 const db = {};
 let sequelize;
 
@@ -16,7 +16,7 @@ if(config.use_env_variable) {
     sequelize = new Sequelize(
         config.database,
         config.username,
-        config.passwords,
+        config.password,
         config
     );
 }
@@ -27,7 +27,8 @@ fs.readdirSync(__dirname)
             file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
         );
     }).forEach((file) => {
-        // ?????????????????????????????
+        const model = sequelize.import(path.join(__dirname, file));
+        db[model.name] = model;
     });
 
     Object.keys(db).forEach((modelName) => {

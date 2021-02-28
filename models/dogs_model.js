@@ -64,7 +64,6 @@ module.exports = (sequelize, DataTypes) => {
             isInt: true,
         }, 
         
-        
     });
 
     Dogs.associate = (models) => {
@@ -77,9 +76,7 @@ module.exports = (sequelize, DataTypes) => {
             },
         });
     };
-   
-    return Dogs;
-
+    return Dogs;   
 };
 //GKF
 
@@ -122,4 +119,3 @@ module.exports = (sequelize, DataTypes) => {
       min: 23,                  // only allow values >= 23
       isCreditCard: true,       // check for valid credit card numbers
  */
-
