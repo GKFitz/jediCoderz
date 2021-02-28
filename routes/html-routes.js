@@ -27,6 +27,21 @@ module.exports = (app) => {
     
     app.get('/my-account', async (req,res) => {
        db.Dogs.findAll()  
-        // console.log(data);
-    })
+        console.log(data);
+    });
+    // app.post('/admin', function(req, res) {
+    //     User.findOne({ username: req.body.username }, function(err, user) {
+    //       if (user.admin === true) {
+    //         res.render('/admin', {"Login Successfull"});
+    //       } else {
+    //         if (req.body.password === user.password) {
+    //           res.redirect('/client');
+    //         } else {
+    //           res.render('login.jade', { error: 'Invalid email or password.' });
+    //         }
+    //       }
+    //     });
+    //   });
+
+    
 }

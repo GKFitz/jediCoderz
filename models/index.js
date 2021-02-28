@@ -29,3 +29,58 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 module.exports = db;
+
+// // for Sequelize
+// //const fs = require('fs') ?? const path = require('path'); ??
+// const Sequelize = require('sequelize');
+// const fs = require('fs');
+// const path = require('path');
+// //Basename: -> Returns the last portion of a path. Similar to the Unix basename command. Often used to extract the file name from a fully qualified path.
+// const basename = path.basename(module.filename);
+// const env = process.env.NODE_ENV || 'development';
+// const config = require(`${__dirname}/../config/connection.js`)[env];
+// const db = {};
+// let sequelize;
+// if(config.use_env_variable) {
+//     sequelize = new Sequelize(process.env[config.use_env_variable]);
+// } else {
+//     sequelize = new Sequelize(
+//         config.database,
+//         config.username,
+//         config.passwords,
+//         config
+//     );
+// }
+// fs.readdirSync(__dirname)
+//     .filter((file) => {
+//         return (
+//             file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
+//         );
+//     }).forEach((file) => {
+//         // ?????????????????????????????
+//     });
+//     Object.keys(db).forEach((modelName) => {
+//         if(db[modelName].associate) {
+//             db[modelName].associate(db);
+//         }
+//     });
+// db.sequelize = sequelize;
+// db.Sequelize = Sequelize;
+// module.exports = db;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
