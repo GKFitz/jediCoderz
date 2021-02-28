@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
                 len: [2,15],
             },
         },
-        passwords: {
+        password: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -21,25 +21,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        petId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-            isNumeric: true,
-            isInt: true,
-        }
     });
 
     Account.associate = (models) => {
         //Associate Account with Dog
         // When Account is deleted its also deleted inside Dog
-        Account.hasMany(models.Dog, {
+        Account.hasMany(models.Dogs, {
             onDelete: 'cascade'
         });
     };
-    Account.sync();
+    // Account.sync();
     return Account;
 };
 
