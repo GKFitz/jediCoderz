@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8080;
 
 //Backend Routes
 const htmlRouter = require('./routes/html-routes.js');
-const dogsRouter = require('./routes/client-routes.js');
+const clientRouter = require('./routes/client-routes.js');
 const apiRouter = require('./routes/api-routes.js');
 
 //Handlebars
@@ -20,7 +20,6 @@ app.engine('handlebars', handlebars({
 
 // Requiring our models for syncing
 const db = require('./models');
-
 
 // Invoke routes
 htmlRouter(app);

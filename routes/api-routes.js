@@ -1,12 +1,18 @@
-const { query } = require('express');
+// const { query } = require('express');
 // accounts table -> require models
 const db = require('../models');
+
+var passport = require("../config/passport");
 
 // HTTP REQUESTS 
 // https://sequelize.org/v3/docs/querying/
 
 // Get route for getting all the dog clients 
 module.exports = (app) => {
+    //Login page route
+    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+        res.json(req.user);
+    });
     // GET route for all account posts
     //This to pull ALL client accounts, including all dog information
     app.get('/api/accounts', (req, res) => {
