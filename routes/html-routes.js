@@ -1,6 +1,6 @@
-const db = require("../config/connection");
+// const db = require("../models");
 
-function routes(app) {
+module.exports = (app) => {
     app.get('/', (req,res) => {
         res.render('index', {layout: 'main'});
     });
@@ -26,14 +26,7 @@ function routes(app) {
     });
     
     app.get('/my-account', async (req,res) => {
-       db.query("select * from dogs", function(err, data) {
-           res.render('admin', {layout: 'main', dogs: data});
-       });
+       db.Dogs.findAll()  
         // console.log(data);
-       
-    });
-    
+    })
 }
-
-
-module.exports = routes;

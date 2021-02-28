@@ -1,5 +1,5 @@
 // dog table 
-const db = require('../models');
+// const db = require('../models');
 
 module.exports = (app) => {
 

@@ -1,29 +1,20 @@
-// Dependencies
-// =============================================================
-// This may be confusing but here Sequelize (capital) references the standard library
-const Sequelize = require('sequelize');
-// sequelize (lowercase) references our connection to the DB.
-const sequelize = require('../config/connection.js');
-
-const dogRoutes = require("../routes/client-routes");
-
 module.exports = (sequelize, DataTypes) => {
     const Dogs = sequelize.define('Dogs', {
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-              isUserName: true
-            }
-        },
-        client_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [2,15],
-            },
-        },
+        // username: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     unique: true,
+        //     validate: {
+        //       isUserName: true
+        //     }
+        // },
+        // client_name: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         len: [2,15],
+        //     },
+        // },
         dog_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -70,7 +61,6 @@ module.exports = (sequelize, DataTypes) => {
         // a Dogs must belong inside the Admin Account
         // Dogs cannot be created without a petId (username) 
         Dogs.belongsTo(models.Accounts, {
-
             foreignKey: {
                 allowNull: false,
             },

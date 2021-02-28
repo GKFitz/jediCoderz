@@ -1,8 +1,8 @@
 // const { query } = require('express');
 // accounts table -> require models
-const db = require('../models');
+// const db = require('../models');
 
-var passport = require("../config/passport");
+var passport = require("../config/passport.js");
 
 // HTTP REQUESTS 
 // https://sequelize.org/v3/docs/querying/
