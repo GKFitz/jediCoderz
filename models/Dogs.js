@@ -1,20 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
+    
     const Dogs = sequelize.define('Dogs', {
-        // username: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     unique: true,
-        //     validate: {
-        //       isUserName: true
-        //     }
-        // },
-        // client_name: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [2,15],
-        //     },
-        // },
         dog_name: {
             type: DataTypes.STRING,
             allowNull: false,

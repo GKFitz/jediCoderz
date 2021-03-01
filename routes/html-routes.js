@@ -1,7 +1,11 @@
+var path = require("path");
 const db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = (app) => {
     
+
+   
     app.get('/', (req,res) => {
         res.render('index', {layout: 'main'});
     });
@@ -20,8 +24,22 @@ module.exports = (app) => {
     app.get('/registration', (req,res) => {
         res.render('registration', {layout: 'main'});
     });
-    app.get('/my-account', async (req,res) => {
-       db.Dogs.findAll()  
+    // app.get('/my-account', (req,res) => {
+    //     res.render('my-account:Client', {layout: 'main'});
+    // });
+    app.get("/my-account", require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/login"}), (req,res) => {
+        if (req.user.admin) {
+            db.Dogs.findAll({}).then(allDogs => {
+                res.render('my-account', {dogs: allDogs})
+            })
+        }else{
+            db.Accounts.findOne({where: {id: req.user.id}, include: [db.Dogs] })
+            .then(client => {
+                res.render('my-account', {client: client, dogs: client.dogs})
+            })
+        }
+        
     });
+    
 }
 

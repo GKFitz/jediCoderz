@@ -5,10 +5,10 @@
 
 // module.exports = app => {
 //     // Using the passport.authenticate middleware with our local strategy.
-//     // If the user has valid login credentials, send them to the members page.
+//     // If the user has valid login credentials, send them to 
 //     // Otherwise the user will be sent an error
 //     app.post("/api/login", passport.authenticate("local"), function (req, res) {
-//         res.json(req.user);
+//         res.json(req.Accounts);
 //     });
 
 
@@ -16,12 +16,12 @@
 //     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 //     // otherwise send back an error
 //     // app.post("/api/signup", function (req, res) {
-//     //     db.User.create({
-//     //         email: req.body.email,
-//     //         password: req.body.password,
+//     //     db.Accounts.create({
 //     //         userName: req.body.userName,
+//     //         password: req.body.password,
+//     //         
 //     //     })
-//     //         .then(user => {
+//     //         .then(Accounts => {
 //     //             res.status(200).json(user);
 //     //         })
 //     //         .catch(function (err) {
@@ -32,7 +32,7 @@
 //     app.get("/auth/success", (req, res) => {
 //         console.log("The user object is ", req.user)
 //         if (req.user) {
-//             if (Array.isArray(req.user)) {
+//             if (Array.isArray(req.accounts)) {
 //                 console.log("ARRAY!")
 //                 res.json({
 //                     success: true,
@@ -63,13 +63,13 @@
 //         }
 //     });
 
-//     app.get("/api/users/:id", (req, res) => {
+//     app.get("/api/Accounts/:id", (req, res) => {
 //         const id = req.params.id;
-//         db.User.findOne({ where: { id: id } })
+//         db.Accounts.findOne({ where: { id: id } })
 //             .then(data => res.json(data))
 //     })
 
-//     app.put("/api/users/:id", (req, res) => {
+//     app.put("/api/Accounts/:id", (req, res) => {
 //         const id = req.params.id;
 //         db.User.update(
 //             { onboard: true },
@@ -78,18 +78,4 @@
 //     })
 
    
-//     // Route for getting some data about our user to be used client side
-//     app.get("/api/user_data/", function (req, res) {
-//         if (!req.user) {
-//             // The user is not logged in, send back an empty object
-//             res.json({});
-//         } else {
-//             // Otherwise send back the user's email and id
-//             // Sending back a password, even a hashed password, isn't a good idea
-//             res.json({
-//                 email: req.user.email,
-//                 id: req.user.id
-//             });
-//         }
-//     });
-// }
+//     
