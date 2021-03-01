@@ -7,79 +7,18 @@ var passport = require("../config/passport.js");
 // HTTP REQUESTS 
 // https://sequelize.org/v3/docs/querying/
 
-// Get route for getting all the dog clients 
+
 module.exports = (app) => {
     
-    //Authentication 
-    app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        res.json(req.user);
-    });
+   
 
 
    
-    //checking the exosting accounts
-    app.get("/A", function(req, res) {
-        db.Accounts.create({username: 'test1', password: 'test', admin: true})
-        // db.Accounts.create({username: 'test1', password: 'test', admin: false})
-        //3 db.Accounts.create({username: 'hello', password: 'test', admin: false})
-        // db.Accounts.create({username: 'whyme', password: 'test', admin: true})
-        // db.Accounts.create({username: 'who', password: 'test', admin: false})
-        // db.Accounts.create({username: 'test1', password: 'test', admin: false})
-        // db.Accounts.create({username: 'test1', password: 'test', admin: false})
+    
 
+    
 
-        db.Dogs.create({
-            dog_name: "Juno",
-            breed: "Sheltie",
-            age: 7,
-            food_requirements: "raw",
-            friendliness: 5,
-            AccountId: 1
-        })
-        db.Dogs.create({})
-        db.Dogs.create({})
-        db.Dogs.create({})
-        db.Dogs.create({})
-        db.Dogs.create({AccountId: 3})
-        db.Dogs.create({AccountId: 3}).then(resp =>{
-            res.redirect('/')
-        })
-    })
    
-
-    // app.get('/my-account', async (req,res) => {
-    //     console.log(db.Dogs)
-    //    db.Dogs.findAll({}).then(result => console.log(result)) 
-
-    // });
-
-    //rout to admin account
-    app.get('/api/accounts/admin', (req, res) => {
-        // findAll({}) -> for Admin Accounts we want ALL the posts
-        // want to add sequelize code to find all account posts & return back to client with res.json
-        // will use Account inside the sequelize inside models folder
-        db.Accounts.findAll({
-            where: {
-                admin:true,
-            },
-            // Account refers to dogSequelize.js
-            include: [db.Dogs]
-        }).then((dbAdminAcc) => res.json(dbAdminAcc));
-    });
-
-    //route to client account
-    app.get('/api/accounts/client', (req, res) => {
-        // findAll({}) -> for Admin Accounts we want ALL the posts
-        // want to add sequelize code to find all account posts & return back to client with res.json
-        // will use Account inside the sequelize inside models folder
-        db.Accounts.findAll({
-            where: {
-                admin:false,
-            },
-            // Account refers to dogSequelize.js
-            include: [db.Dogs]
-        }).then((dbClientAcc) => res.json(dbClientAcc));
-    });
     
     // Post route for creating account sign-up - dog account creation inside dog-routes.js
     app.post('/api/accounts/registration', (req, res) => {
