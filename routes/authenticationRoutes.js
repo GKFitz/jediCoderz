@@ -3,6 +3,7 @@ var db = require("../models");
 var passport = require("../config/passport");
 const URL = process.env.APP_URL || "http://localhost:8080"
 
+
 module.exports = app => {
 
     //this code goes through the authentication process and sorts whether the user is a 
@@ -20,16 +21,12 @@ module.exports = app => {
     //     }
         
     // });
-    
-    
-    
+    // passport.authenticate("local", { successRedirect: '/my-account', failureRedirect: '/login' }),
     //Login for existing Accounts both admin and client
-    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    app.post("/api/login", passport.authenticate("local", { successRedirect: '/my-account', failureRedirect: '/' }), function(req, res) {
         res.json(req.user);
     });
     
-    
-
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
     // otherwise send back an error
