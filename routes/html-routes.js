@@ -36,36 +36,7 @@ module.exports = (app) => {
         console.log(dog);
         res.render('dogform', {layout: 'main', title : 'Update', id : req.params.id, dog_name:dog.dataValues.dog_name.replace('/',''), breed:dog.dataValues.breed, age : dog.dataValues.age, friendliness:dog.dataValues.friendliness, food_requirements : dog.dataValues.food_requirements });
     });
-    // app.get('/my-account', (req,res) => {
-    //     res.render('my-account:Client', {layout: 'main'});
-    // });
-
-    //this code goes through the authentication process and sorts whether the user is a 
-    //admin or a client. And pulls the appropriate amount of dogs 
-   // app.get("/my-account", require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/login"}), (req,res) => {
-    //     if (req.user.admin) {
-    //         db.Dogs.findAll({}).then(allDogs => {
-    //             res.render('my-account', {dogs: allDogs})
-    //         })
-    //     }else{
-    //         db.Accounts.findOne({where: {id: req.user.id}, include: [db.Dogs] })
-    //         .then(client => {
-    //             res.render('my-account', {client: client, dogs: client.dogs})
-    //         })
-    //     }
-    // }); 
-
-//     app.get('/my-account', require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/login"}), async (req,res) => {
-//         let dogs = [];
-//         let title = ""
-//         if(request.user.admin){
-//              dogs = await db.Dogs.findAll({include:[db.Accounts]});
-//              title = "My Admin Account"
-//         }else{
-//         dogs = await db.Dogs.findAll({where : {AccountId : 1}, include : {model : db.Accounts}})
-//              title = "My Account";       
-//     });
-// });
+ 
 
 app.get('/my-account', require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/"}), async (req,res) => {
     
