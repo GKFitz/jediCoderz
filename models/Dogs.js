@@ -26,8 +26,7 @@ module.exports = (sequelize, DataTypes) => {
             isInt: true,
 
         }, 
-        age: {
-        },
+        
         food_requirements: {
             type: DataTypes.STRING,
             allowNull: false,
