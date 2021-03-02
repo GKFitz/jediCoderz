@@ -25,7 +25,7 @@ module.exports = app => {
     
     //Login for existing Accounts both admin and client
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        res.json(req.user);
+        res.json(req.params.id);
     });
     
     
