@@ -4,8 +4,11 @@ const express = require('express');
 const router = express.Router();
 
 // import dog.js from models folder to use the DB functions // Links to the ORM
-const Accounts = require('../../../models/accounts_model.js');
+const Accounts = require('../../../models/Accounts.js');
 
+
+
+$.get('/api/dogs').then(dogs => {
 // Create routes + logic - GET 
 router.get('/my-account', (req, res) => {
     Accounts.all((data) => {

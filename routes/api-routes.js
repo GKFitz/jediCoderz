@@ -41,13 +41,15 @@ module.exports = (app) => {
     });
 
 
-    // app.delete('/api/myAdmin-account/:id', (req, res) => {
-    //     db.Admin.destroy({
-    //       where: {
-    //         id: req.params.id,
-    //       },
-    //     }).then((db) => res.json(dbAuthor));
-    //   });
+    app.delete('/api/dogs/:id', (req, res) => {
+        console.log("Hit!")
+        db.Dogs.destroy({
+          where: {
+            id: req.params.id,
+          },
+        }).then((dbdog) => res.json(dbdog));
+      });
+
 //     // Post route for creating account sign-up for a client
 //     app.post('/api/accounts/registration', (req, res) => {
 //         console.log(req.body);

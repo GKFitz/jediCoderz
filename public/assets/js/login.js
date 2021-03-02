@@ -35,10 +35,7 @@ $(document).ready(function() {
         password: password
       })
         .then(function(account) {
-          if (account.id) {
-          console.log(account)
           window.location.replace("/my-account");
-          }
           // If there's an error, log the error
         })
         .catch(function(err) {
