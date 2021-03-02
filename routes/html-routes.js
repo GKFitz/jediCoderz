@@ -10,6 +10,8 @@ module.exports = (app) => {
         res.render('index', {layout: 'main'});
     });
     app.get('/login', (req,res) => {
+        // [New] Logout the user
+        req.logOut()
         res.render('login', {layout: 'main'});
     });
     app.get('/team', (req,res) => {
@@ -23,6 +25,16 @@ module.exports = (app) => {
     });
     app.get('/registration', (req,res) => {
         res.render('registration', {layout: 'main'});
+    });
+ 
+    app.get('/create', require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/"}), (req,res) => {
+        res.render('dogformcreate', {layout: 'main', title : 'Add Dog',adminId:req.user.id, dog_name:' ', breed:'', age : '', friendliness:'', food_requirements : ''});
+    });
+
+    app.get('/update/:id', async (req,res) => {
+        const dog = await db.Dogs.findOne({where :{id : req.params.id}});
+        console.log(dog);
+        res.render('dogform', {layout: 'main', title : 'Update', id : req.params.id, dog_name:dog.dataValues.dog_name.replace('/',''), breed:dog.dataValues.breed, age : dog.dataValues.age, friendliness:dog.dataValues.friendliness, food_requirements : dog.dataValues.food_requirements });
     });
     // app.get('/my-account', (req,res) => {
     //     res.render('my-account:Client', {layout: 'main'});
