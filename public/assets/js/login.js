@@ -43,9 +43,9 @@ $(document).ready(function() {
         });
     }
 
-    $.get('/api/dogs').then(dogs => {
+    $.get('/api/dogs').then(dog => {
       //Display all dogs using javascript
-      dog.forEach(dog => {
+      Dogs.forEach(dog => {
        const li = document.createElement('li')
         li.innerText = dog.name
 

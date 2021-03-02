@@ -5,7 +5,7 @@
 //     var loginForm = $("#registration");
 //     var username = $("#username");
 //     var password = $("#password");
-        var confirem pa
+        
   
 //     // var usernameInputAdmin = $("adminUsername");
 //     // var passwordInputAdmin = $("adminPassword");

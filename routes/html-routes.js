@@ -59,15 +59,22 @@ app.get('/my-account', require('connect-ensure-login').ensureLoggedIn({ redirect
     
     let dogs = [];
     let title = ""
+    console.log(req.user.admin)
+    console.log(req.user.id)
      if(req.user.admin){
+         console.log("Is there a req.user.admin?")
          dogs = await db.Dogs.findAll({include:[db.Accounts]});
          title = "My Admin Account"
      } else {
+        console.log(req.user.id)
+        console.log("Is this being hit?")
      dogs = await db.Dogs.findAll({where : {AccountId : req.user.id}, include:[db.Accounts]})
-         title = "My Account"       
+         title = "My Account"  
+         console.log("So the dogs are:", dogs)     
     }
-    dogs = dogs.map(dog=>dog.dataValues)
 
+    dogs = dogs.map(dog=>dog.dataValues)
+        console.log("dogs:", dogs)
        res.render('admin', {layout: 'main', dogs : dogs, title : title});
 
 });
