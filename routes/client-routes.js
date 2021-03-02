@@ -7,15 +7,16 @@ module.exports = (app) => {
     app.get('/api/client/:id', (req, res) => {
         db.Accounts.findOne({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                admin: false,
                 
             },
             include: [db.Dogs],
-        }).then((dbClientAcc) => res.json(dbClientAcc));
+        }).then((dbAccounts) => res.json(dbAccounts));
     });
 
-    // Post route for dogs accounts 
-    app.post('/api/client/', (req, res) => {
+    // Post enable client to add a dog to their account
+    app.post('/api/client', (req, res) => {
         console.log(req.body);
         db.Dogs.create({
             AccountsId: req.body.accountsId,
@@ -25,7 +26,7 @@ module.exports = (app) => {
             age: req.body.age,
             food_requirements: req.body.food_requirements,
             friendliness: req.body.friendliness,
-        }).then((dbClientAcc) => res.json(dbClientAcc));
+        }).then((dbDogs) => res.json(dbDogs));
 
     });
 
@@ -35,7 +36,7 @@ module.exports = (app) => {
             where: {
                 id: req.body.id,
             },
-        }).then((dbClientAcc) => res.json(dbClientAcc));
+        }).then((dbDogs) => res.json(dbDogs));
     })
     // Delete route needed here or????
 };

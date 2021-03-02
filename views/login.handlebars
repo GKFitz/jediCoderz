@@ -43,13 +43,13 @@
             <div class="login_se">
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-6">
-                        <form>
+                        <form id="login">
                             <h3 class="text-center">User Login</h3>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username*" name="clientUsername" />
+                                <input type="text" id="username" class="form-control" placeholder="Username*" name="clientUsername" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password*" name="clientPassword" />
+                                <input type="password" id="password" class="form-control" placeholder="Password*" name="clientPassword" />
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-xl btnSubmit" >Login</button>
@@ -59,7 +59,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-6 login-form-2">
+                    {{!-- <div class="col-md-6 login-form-2">
                         <form>
                             <h3 class="text-center">Admin Login</h3>
                             <div class="form-group">
@@ -70,9 +70,9 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-xl btnSubmit" >Login</button>
-                            </div>
-                        </form>
-                    </div>
+                            </div> --}}
+                        {{!-- </form>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -89,3 +89,4 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/login.js"></script>

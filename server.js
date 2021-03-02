@@ -1,11 +1,24 @@
+//Authentication
+var passport = require("./config/passport");
+var session = require("express-session");
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Backend Routes
 const htmlRouter = require('./routes/html-routes.js');
 const clientRouter = require('./routes/client-routes.js');
 const apiRouter = require('./routes/api-routes.js');
+const seedRouter = require('./routes/seeders-routes.js');
+
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -21,9 +34,11 @@ app.engine('handlebars', handlebars({
 
 
 // Invoke routes
-htmlRouter(app);
+
 clientRouter(app);
 apiRouter(app);
+htmlRouter(app);
+seedRouter(app)
 
 // Syncing our sequelize models and then starting our Express app
 // GKF once set up make force false
