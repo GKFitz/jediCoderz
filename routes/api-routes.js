@@ -20,7 +20,7 @@ module.exports = (app) => {
                 admin: true
             },
           include: [db.Dogs],
-        }).then((dbAdmin) => res.json(dbAdmin));
+        }).then((dbAdmin) => res.json(dbAdmin))
     });
     
     app.get('/api/admin/:id', (req, res) => {
@@ -37,9 +37,25 @@ module.exports = (app) => {
     });
 
     app.post('/api/admin', (req, res) => {
-        db.Dogs.create(req.body).then((dbAuthor) => res.json(dbAuthor));
+      //[New] Handle Errors
+        db.Accounts.create(req.body).then((dbAuthor) => res.json(dbAuthor)).catch((error)=>res.status(400).json(error));
+        ;
     });
+    app.post('/api/dogs', (req, res) => {
+      console.log("Herrere");
+      console.log(req.body);
+      db.Dogs.create(req.body).then((dbAuthor) => res.json(dbAuthor));
+  });
 
+
+      // Put route to update whatever the client inputs, if changes are made on the ADMIN side, the client files are immediately updated
+      app.put('/api/dogs/:id', (req, res) => {
+        db.Dogs.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        }).then((dbDogs) => res.json(dbDogs));
+    })
 
     app.delete('/api/dogs/:id', (req, res) => {
         console.log("Hit!")

@@ -206,7 +206,7 @@ bottom: 0px;
   padding-top: 15px;
 }
 .homepagecarousel .carousel-item:after {
-  background: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+*background: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 5%);
   content: "";
   position: absolute;
   left: 0px;
