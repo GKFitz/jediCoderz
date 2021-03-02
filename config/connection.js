@@ -15,6 +15,13 @@ const sequelize = new Sequelize('dogHouse_db', 'root', process.env.PASS, {
     idle: 10000,
   },
 });
+try {
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+
 
 // Exports the connection for other files to use
 module.exports = sequelize;

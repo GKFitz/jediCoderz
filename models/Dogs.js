@@ -1,20 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
+    
     const Dogs = sequelize.define('Dogs', {
-        // username: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     unique: true,
-        //     validate: {
-        //       isUserName: true
-        //     }
-        // },
-        // client_name: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [2,15],
-        //     },
-        // },
         dog_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -26,14 +12,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [2,15],
+                len: [2,20],
             },
         },
         age: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                len: [2,35],
+                min: 2,
+                max: 35,
             },
             isNumeric: true,
             isInt: true,
@@ -49,7 +36,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                len: [1,5],
+                min: 1,
+                max: 5
             },
             isNumeric: true,
             isInt: true,
