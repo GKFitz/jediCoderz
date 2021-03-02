@@ -45,5 +45,17 @@ $(document).ready(function() {
           console.log(err);
         });
     }
+
+    $.get('/api/dogs').then(dogs => {
+      //Display all dogs using javascript
+      dog.forEach(dog => {
+       const li = document.createElement('li')
+        li.innerText = dog.name
+
+        const div = document.createElement('div')
+        div.append(li)
+        container.append(div)
+      })
+    })
   });
   

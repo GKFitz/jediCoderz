@@ -27,6 +27,9 @@ module.exports = (app) => {
     // app.get('/my-account', (req,res) => {
     //     res.render('my-account:Client', {layout: 'main'});
     // });
+
+    //this code goes through the authentication process and sorts whether the user is a 
+    //admin or a client. And pulls the appropriate amount of dogs 
     app.get("/my-account", require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/login"}), (req,res) => {
         if (req.user.admin) {
             db.Dogs.findAll({}).then(allDogs => {
@@ -38,7 +41,6 @@ module.exports = (app) => {
                 res.render('my-account', {client: client, dogs: client.dogs})
             })
         }
-        
     });
     
 }

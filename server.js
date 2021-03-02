@@ -17,6 +17,8 @@ app.use(passport.session());
 const htmlRouter = require('./routes/html-routes.js');
 const clientRouter = require('./routes/client-routes.js');
 const apiRouter = require('./routes/api-routes.js');
+const seedRouter = require('./routes/seeders-routes.js');
+
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -36,10 +38,11 @@ app.engine('handlebars', handlebars({
 clientRouter(app);
 apiRouter(app);
 htmlRouter(app);
+seedRouter(app)
 
 // Syncing our sequelize models and then starting our Express app
 // GKF once set up make force false
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   app.use(express.static('public/assets'));
   app.use(require('./routes/html-routes'));
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
