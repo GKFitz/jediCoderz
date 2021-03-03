@@ -4,6 +4,8 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "node": "v15.8.0",
+    "npm": "7.5.0",
     "bcryptjs": "^2.4.3",
     "cli": "^1.0.1",
     "config.json": "^0.0.4",
