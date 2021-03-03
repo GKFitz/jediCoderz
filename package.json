@@ -1,5 +1,8 @@
 {
   "name": "workprojectfolder",
+  "engines": {
+    "node": "15.8.0" 
+  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -28,6 +31,7 @@
     "undo:seed": "sequelize db:seed:undo",
     "undoAll:seed": "sequelize db:seed:undo:all",
     "runAll:seed": "sequelize db:seed:all"
+
   },
   "author": "",
   "license": "ISC"
