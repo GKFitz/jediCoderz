@@ -5,7 +5,7 @@ var passport = require("../config/passport.js");
 
 module.exports = (app) => {
     
-    app.get("/A", function(req, res) {
+    app.post("/A", function(req, res) {
         db.Accounts.create({username: 'test_admin', password: '123', admin: true})
         db.Accounts.create({username: 'gkf', password: '111', admin: false})
         db.Accounts.create({username: 'jude', password: 'test', admin: false})
